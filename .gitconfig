@@ -1,0 +1,20 @@
+[user]
+	email = smt116@gmail.com
+	name = Maciej Małecki
+
+[color]
+  diff = always
+  ui = true
+
+[color "diff"]
+  whitespace = red reverse
+
+[core]
+  whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+
+[alias]
+  s = status
+  c = commit
+  d = diff
+  l = log
+  b = branch
