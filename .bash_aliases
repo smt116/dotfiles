@@ -2,9 +2,9 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
-alias ll='ls -alF --color'
-alias la='ls -A'
-alias l='ls -lF --color'
+alias 'll'='ls -alF --color'
+alias 'la'='ls -A'
+alias 'l'='ls -lF --color'
 alias 'c'='clear'
 
 alias 'sigma'='ssh mmalecki@sigma.ug.edu.pl'
@@ -16,4 +16,5 @@ alias '..'='cd ..'
 alias '~~'='cd ~'
 alias 'who'='who | sort'
 alias 'pss'='ps -u smefju'
+
 alias 'cs'='c;git s'
