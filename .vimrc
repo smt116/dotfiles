@@ -11,6 +11,8 @@ filetype plugin indent on
 "set background=dark
 colorscheme codeschool
 
+set backupdir=~/tmp
+
 set encoding=utf-8
 set fileencodings=utf-8,latin2
 set autowrite
