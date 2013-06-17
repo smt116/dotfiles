@@ -1,5 +1,5 @@
-export HISTSIZE=3000
-export HISTFILESIZE=1000
+export HISTSIZE=10000
+export HISTFILESIZE=10000
 
 if `tty -s`;
 then
@@ -7,7 +7,5 @@ then
   echo "HAVE FUN!"
 fi
 
-PS1='\[\033[01;34m\]#\w \[\033[01;32m\]$ \[\033[00m\]'
-
-rm -rf ~/tmp/* &
+#rm -rf ~/tmp/* &
 rm -rf ~/.xsession-errors &
