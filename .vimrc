@@ -2,6 +2,7 @@ set nocompatible
 
 silent! call pathogen#runtime_append_all_bundles()
 silent! call pathogen#helptags()
+call pathogen#infect()
 
 syntax enable
 filetype plugin indent on
@@ -9,7 +10,8 @@ filetype plugin indent on
 "let g:solarized_termcolors=256
 "let g:solarized_termtrans=1
 "set background=dark
-colorscheme codeschool
+"colorscheme codeschool
+"colorscheme grb256
 
 set backupdir=~/tmp
 
