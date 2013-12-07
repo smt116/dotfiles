@@ -15,3 +15,5 @@ alias '..'='cd ..'
 alias '~~'='cd ~'
 
 alias 'be'='bundle exec'
+
+alias 'copy'='xclip -sel clip'
