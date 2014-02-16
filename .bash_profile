@@ -6,6 +6,3 @@ then
   mesg n
   echo "HAVE FUN!"
 fi
-
-#rm -rf ~/tmp/* &
-rm -rf ~/.xsession-errors &

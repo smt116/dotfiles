@@ -22,6 +22,7 @@
   ss = status -s
   c = commit
   d = diff
+  dc = diff --cached
   l = log
   b = branch
   co = checkout
