@@ -33,7 +33,7 @@ setopt EXTENDED_HISTORY
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
-export PROMPT=$'%F{grey}$(rbenv version-name) %F{yellow}%~% %F{green}$(git_prompt)%f '
+export PROMPT=$'\n%F{grey}$(rbenv version-name) %F{yellow}%~% %F{green}$(git_prompt)%f\n %F{cyan}$%f '
 
 export EDITOR='vim'
 export HISTFILE="$HOME/.zsh_history"
