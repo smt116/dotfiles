@@ -42,7 +42,9 @@ export SAVEHIST=4096
 export HISTCONTROL="ignoreboth"
 
 bindkey -e
-bindkey '^[[1;9C' forward-word
-bindkey '^[[1;9D' backward-word
+bindkey "\e\e[D" backward-word    # alt + <-
+bindkey "\e\e[C" forward-word     # alt + ->
+bindkey '^[[H' beginning-of-line  # fn  + <-
+bindkey '^[[F' end-of-line        # fn  + ->
 
 eval "$(rbenv init -)"
