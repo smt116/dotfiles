@@ -17,4 +17,3 @@ alias ~~='cd ~'
 alias be='bundle exec'
 
 alias cp='cp -R'
-alias mv='mv -R'
