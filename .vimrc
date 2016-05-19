@@ -10,7 +10,7 @@ filetype plugin indent on
 "let g:solarized_termcolors=256
 "let g:solarized_termtrans=1
 "set background=dark
-"colorscheme codeschool
+colorscheme codeschool
 "colorscheme grb256
 
 set backupdir=~/tmp

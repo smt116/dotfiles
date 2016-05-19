@@ -1,6 +1,7 @@
 [user]
   email = smt116@gmail.com
   name = Maciej Malecki
+  signingkey = smt116@gmail.com
 
 [color]
   diff = always
@@ -23,14 +24,23 @@
 [alias]
   s = status
   ss = status -sb
-  p = pull
   pr = pull --rebase
-  c = commit
+  c = commit -v
   d = diff
   dc = diff --cached
   l = log
-  lp = log -p
   b = branch
   co = checkout
-  lg =  log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
   files = diff-tree --no-commit-id --name-only -r
+  ca = commit --amend -v
+  r = rebase
+  rc = rebase --continue
+  rup = remote update --prune
+
+[filter "lfs"]
+  clean = git-lfs clean %f
+  smudge = git-lfs smudge %f
+  required = true
+
+[commit]
+  gpgsign = true

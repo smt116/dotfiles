@@ -1,10 +1,10 @@
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
+source "$HOME/.zsh/gpg.zsh"
 source "$HOME/.zsh/aliases.zsh"
 source "$HOME/.zsh/functions.zsh"
 source "$HOME/.zsh/git.zsh"
-source "$HOME/.zsh/shelly.zsh"
 
 export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
@@ -33,7 +33,7 @@ setopt EXTENDED_HISTORY
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
-export PROMPT=$'\n%F{grey}$(rbenv version-name) %F{yellow}%~% %F{green}$(git_prompt)%f\n %F{cyan}$%f '
+export PROMPT=$'\n%F{yellow}%.% %F{green}%f %F{cyan}λ%f '
 
 export EDITOR='vim'
 export HISTFILE="$HOME/.zsh_history"
@@ -48,3 +48,6 @@ bindkey '^[[H' beginning-of-line  # fn  + <-
 bindkey '^[[F' end-of-line        # fn  + ->
 
 eval "$(rbenv init -)"
+
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh

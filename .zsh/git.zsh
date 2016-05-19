@@ -22,3 +22,5 @@ function gc {
     git commit -v
   fi
 }
+
+alias gpurge='git branch --merged | grep -v "*" | grep -v "master" | xargs -n 1 git branch -d'

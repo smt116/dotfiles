@@ -1,8 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/home/smefju/ragnarson/shelly/shelly'
-let g:netrw_dirhist_2='/home/smefju/ragnarson/shelly/shelly/spec'
-let g:netrw_dirhist_3='/home/smefju/ragnarson/shelly/shelly/spec/shelly'
-let g:netrw_dirhist_4='/home/smefju/ragnarson/shelly/shelly/spec/shelly/cli'
-let g:netrw_dirhist_5='/home/smefju/ragnarson/shelly/shelly-app/app/views/documentation'
-let g:netrw_dirhist_6='/home/smefju/tmp/lab-lib'
