@@ -33,7 +33,7 @@ setopt EXTENDED_HISTORY
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
-export PROMPT=$'\n%F{yellow}%.% %F{green}%f %F{cyan}λ%f '
+export PROMPT=$'\n%F{yellow}%.%  %F{cyan}λ%f '
 
 export EDITOR='vim'
 export HISTFILE="$HOME/.zsh_history"
