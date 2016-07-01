@@ -6,3 +6,8 @@ function nvm() {
 
   $0 $@
 }
+
+function node() {
+  binary_path=`nvm which default`
+  eval "$binary_path"
+}
