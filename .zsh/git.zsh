@@ -1,12 +1,3 @@
-function git_dirty {
-  [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit, working directory clean" ]] && echo '~'
-}
-
-function git_prompt {
-  ref=$(git symbolic-ref HEAD 2> /dev/null) || return
-  echo ' '${ref#refs/heads/}''$(git_dirty)
-}
-
 function g {
   if [[ $# > 0 ]]; then
     git $@
@@ -23,4 +14,10 @@ function gc {
   fi
 }
 
-alias gpurge='git branch --merged | grep -v "*" | grep -v "master" | xargs -n 1 git branch -d'
+function gf {
+  if [[ $# > 0 ]]; then
+    git diff-tree --no-commit-id --name-only -r $@
+  else
+    git diff-tree --no-commit-id --name-only -r HEAD
+  fi
+}
