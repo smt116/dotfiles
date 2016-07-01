@@ -9,6 +9,7 @@ source "$HOME/.zsh/aliases.zsh"
 source "$HOME/.zsh/functions.zsh"
 source "$HOME/.zsh/git.zsh"
 source "$HOME/.zsh/nvm.zsh"
+source "$HOME/.zsh/keyboard.zsh"
 
 export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
@@ -43,11 +44,5 @@ export HISTFILE="$HOME/.zsh_history"
 export HISTSIZE=4096
 export SAVEHIST=4096
 export HISTCONTROL="ignoreboth"
-
-bindkey -e
-bindkey "\e\e[D" backward-word    # alt + <-
-bindkey "\e\e[C" forward-word     # alt + ->
-bindkey '^[[H' beginning-of-line  # fn  + <-
-bindkey '^[[F' end-of-line        # fn  + ->
 
 eval "$(rbenv init -)"
