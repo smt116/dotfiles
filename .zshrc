@@ -5,6 +5,7 @@ source "$HOME/.zsh/gpg.zsh"
 source "$HOME/.zsh/aliases.zsh"
 source "$HOME/.zsh/functions.zsh"
 source "$HOME/.zsh/git.zsh"
+source "$HOME/.zsh/nvm.zsh"
 
 export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
@@ -48,6 +49,3 @@ bindkey '^[[H' beginning-of-line  # fn  + <-
 bindkey '^[[F' end-of-line        # fn  + ->
 
 eval "$(rbenv init -)"
-
-export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
