@@ -1,6 +1,9 @@
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
+export PATH="$HOME/.zsh/bin:$PATH"
+export EDITOR="editor"
+
 source "$HOME/.zsh/gpg.zsh"
 source "$HOME/.zsh/aliases.zsh"
 source "$HOME/.zsh/functions.zsh"
@@ -36,7 +39,6 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 export PROMPT=$'\n%F{yellow}%.%  %F{cyan}λ%f '
 
-export EDITOR='vim'
 export HISTFILE="$HOME/.zsh_history"
 export HISTSIZE=4096
 export SAVEHIST=4096

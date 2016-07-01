@@ -1,3 +1,5 @@
+alias e='editor'
+
 alias grep='grep --color=auto'
 alias less='less -R'
 
