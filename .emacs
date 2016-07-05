@@ -85,3 +85,18 @@
 ;; cursor
 (setq default-cursor-type 'bar)
 (blink-cursor-mode t)
+
+;; skip internal buffers
+(defadvice next-buffer (after avoid-messages-buffer-in-next-buffer)
+  "Advice around `next-buffer' to avoid going into internal buffer."
+  (when (member (buffer-name) '("*Completions*" "*Messages*" "*Help*"))
+    (next-buffer)))
+
+(ad-activate 'next-buffer)
+
+(defadvice previous-buffer (after avoid-messages-buffer-in-previous-buffer)
+  "Advice around `previous-buffer' to avoid going into internal buffer."
+  (when (member (buffer-name) '("*Completions*" "*Messages*" "*Help*"))
+    (previous-buffer)))
+
+(ad-activate 'previous-buffer)
