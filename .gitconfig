@@ -32,11 +32,9 @@
   l = log
   b = branch
   co = checkout
-  files = diff-tree --no-commit-id --name-only -r
   ca = commit --amend -v
   r = rebase
   rc = rebase --continue
-  rup = remote update --prune
 
 [filter "lfs"]
   clean = git-lfs clean %f
