@@ -2,7 +2,7 @@ function g {
   if [[ $# > 0 ]]; then
     git $@
   else
-    git status --shord --branch
+    git status --short --branch
   fi
 }
 
