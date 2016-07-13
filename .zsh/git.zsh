@@ -2,15 +2,15 @@ function g {
   if [[ $# > 0 ]]; then
     git $@
   else
-    git status -sb
+    git status --shord --branch
   fi
 }
 
 function gc {
   if [[ $# > 0 ]]; then
-    git commit -m $1
+    git commit --message $1
   else
-    git commit -v
+    git commit --verbose
   fi
 }
 

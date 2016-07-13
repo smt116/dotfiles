@@ -23,17 +23,18 @@
   default = current
 
 [alias]
-  s = status
-  ss = status -sb
+  s  = status
+  ss = status --short --branch
   pr = pull --rebase
-  c = commit -v
-  d = diff
+  c  = commit --verbose
+  d  = diff
   dc = diff --cached
-  l = log
-  b = branch
+  l  = log
+  b  = branch
   co = checkout
-  ca = commit --amend -v
-  r = rebase
+  ca = commit --amend --verbose
+  r  = rebase
+  ri = rebase --interactive
   rc = rebase --continue
 
 [filter "lfs"]
