@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+
+BRANCH=$(git symbolic-ref --short HEAD)
+TICKET_ID=${BRANCH%/*}
+
+if [ "$BRANCH"  == "$TICKET_ID" ]; then exit 0; fi
+
+sed --in-place --expression "1i[$TICKET_ID]" $1
