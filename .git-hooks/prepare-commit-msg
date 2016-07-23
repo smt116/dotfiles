@@ -5,4 +5,7 @@ TICKET_ID=${BRANCH%/*}
 
 if [ "$BRANCH"  == "$TICKET_ID" ]; then exit 0; fi
 
-sed --in-place --expression "1i[$TICKET_ID]" $1
+grep --no-messages --silent "^\[#.*\]" $1
+if [ $? -eq 0 ]; then exit 0; fi
+
+sed --in-place --expression "1i\[#$TICKET_ID\]" $1
