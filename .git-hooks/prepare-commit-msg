@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+# Add ticket id to commit message as [#TICKET-ID]. Requires ticket-id/description format of current branch name.
+
 BRANCH=$(git symbolic-ref --short HEAD)
 TICKET_ID=${BRANCH%/*}
 
