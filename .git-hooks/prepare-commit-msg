@@ -5,9 +5,14 @@
 BRANCH=$(git symbolic-ref --short HEAD)
 TICKET_ID=${BRANCH%/*}
 
+# Skip if branch name does not have ticket-id/ prefix
 if [ "$BRANCH"  == "$TICKET_ID" ]; then exit 0; fi
 
+# Skip if ticket id is already added (for example on --amend)
 grep --no-messages --silent "^\[#.*\]" $1
 if [ $? -eq 0 ]; then exit 0; fi
 
+# Add ticket id with two empty lines before (so user does not need to insert empty lines to put ticket id at the end)
 sed --in-place --expression "1i\[#$TICKET_ID\]" $1
+sed --in-place --expression '1i\\' $1
+sed --in-place --expression '1i\\' $1
