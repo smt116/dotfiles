@@ -2,7 +2,7 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
 export PATH="$HOME/.zsh/bin:$PATH"
-export EDITOR="editor"
+export EDITOR="editor --no-window-system"
 
 source "$HOME/.zsh/gpg.zsh"
 source "$HOME/.zsh/aliases.zsh"

@@ -1,14 +1,20 @@
-#!/bin/zsh
+#!/usr/bin/env sh
 
-if [ -z $(emacsclient -e '(emacs-pid)' 2> /dev/null) ]; then
-  launchctl unload ~/Library/LaunchAgents/gnu.emacs.daemon.plist
-  launchctl load -w ~/Library/LaunchAgents/gnu.emacs.daemon.plist
-fi
+arguments=$@
 
-sleep 0.5
-
-if ps x | grep emacsclient | grep -v grep; then
-  nohup emacsclient "$@" > /dev/null 2>&1 &
+if [[ "${arguments[@]}" =~ "--no-window-system" ]]; then
+  emacs $@
 else
-  nohup emacsclient --create-frame "$@" > /dev/null 2>&1 &
+  if [ -z $(emacsclient -e '(emacs-pid)' 2> /dev/null) ]; then
+    launchctl unload ~/Library/LaunchAgents/gnu.emacs.daemon.plist
+    launchctl load -w ~/Library/LaunchAgents/gnu.emacs.daemon.plist
+  fi
+
+  sleep 0.5
+
+  if ps x | grep emacsclient | grep -v grep; then
+    nohup emacsclient "$@" > /dev/null 2>&1 &
+  else
+    nohup emacsclient --create-frame "$@" > /dev/null 2>&1 &
+  fi
 fi
