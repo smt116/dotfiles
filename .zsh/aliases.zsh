@@ -1,8 +1,5 @@
 alias e='editor'
 
-alias grep='grep --color=auto'
-alias less='less -R'
-
 alias df='df -h'
 
 alias l='ls -lFhG'

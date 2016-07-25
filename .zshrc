@@ -45,4 +45,7 @@ export HISTSIZE=4096
 export SAVEHIST=4096
 export HISTCONTROL="ignoreboth"
 
+export GREP_OPTIONS="--color=auto --exclude-dir=.git"
+export LESS="--RAW-CONTROL-CHARS"
+
 eval "$(rbenv init -)"
