@@ -14,6 +14,7 @@ source "$HOME/.zsh/keyboard.zsh"
 export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="/usr/local/opt/gnupg/libexec/gpgbin:$PATH"
 
 export FPATH="$FPATH:/usr/local/share/zsh-completions"
 export FPATH="$FPATH:/usr/share/zsh/site-functions"
