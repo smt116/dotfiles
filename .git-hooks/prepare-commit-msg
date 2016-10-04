@@ -12,6 +12,10 @@ if [ "$BRANCH"  == "$TICKET_ID" ]; then exit 0; fi
 grep --no-messages --silent "^\[#.*\]" $1
 if [ $? -eq 0 ]; then exit 0; fi
 
+# Skip if this is a fixup commit
+grep --no-messages --silent "^fixup!" $1
+if [ $? -eq 0 ]; then exit 0; fi
+
 # Add ticket id with two empty lines before (so user does not need to insert empty lines to put ticket id at the end)
 sed --in-place --expression "1i\[#$TICKET_ID\]" $1
 sed --in-place --expression '1i\\' $1
