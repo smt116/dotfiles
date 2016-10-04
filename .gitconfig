@@ -33,6 +33,7 @@
   b  = branch
   co = checkout
   ca = commit --amend --verbose
+  cf = commit --fixup
   r  = rebase
   ri = rebase --interactive
   rc = rebase --continue
@@ -47,3 +48,6 @@
 
 [submodule]
   fetchJobs = 4
+
+[rebase]
+  autosquash = true
