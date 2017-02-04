@@ -1,1 +1,17 @@
 \x auto
+
+-- store separate history for each database
+\set HISTFILE ~/.psql_history :HOST - :DBNAME
+
+-- do not duplicate entries in a history
+\set HISTCONTROL ignoredups
+
+-- show NULL's as `(null)` value to make it different from an empty string
+\pset null '(null)'
+
+-- [local]: user@database#
+\set PROMPT1 '%M: %n@%/%#%x '
+\set PROMPT2 '%R > '
+
+-- always show timing
+\timing
