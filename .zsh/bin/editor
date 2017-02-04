@@ -6,8 +6,7 @@ if [[ "${arguments[@]}" =~ "--no-window-system" ]]; then
   emacs $@
 else
   if [ -z $(emacsclient -e '(emacs-pid)' 2> /dev/null) ]; then
-    launchctl unload ~/Library/LaunchAgents/gnu.emacs.daemon.plist
-    launchctl load -w ~/Library/LaunchAgents/gnu.emacs.daemon.plist
+    launchctl start homebrew.mxcl.emacs
   fi
 
   sleep 0.5
