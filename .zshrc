@@ -50,3 +50,7 @@ export GREP_OPTIONS="--color=auto --exclude-dir=.git"
 export LESS="--RAW-CONTROL-CHARS"
 
 eval "$(rbenv init -)"
+
+export GOPATH="$HOME/.go-lang"
+export PATH="$PATH:/usr/local/opt/go/libexec/bin"
+export PATH="$PATH:$GOPATH/bin"
