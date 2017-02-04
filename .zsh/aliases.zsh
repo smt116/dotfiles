@@ -11,4 +11,4 @@ alias ..='cd ..'
 
 alias be='bundle exec'
 
-alias brewupdate='brew update ; brew upgrade --all; gem update --system'
+alias brewupdate='brew update ; brew upgrade ; gem update --system'
