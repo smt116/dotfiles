@@ -1,7 +1,6 @@
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-export PATH="$HOME/.zsh/bin:$PATH"
 export EDITOR="editor --no-window-system"
 
 source "$HOME/.zsh/gpg.zsh"
@@ -11,10 +10,11 @@ source "$HOME/.zsh/git.zsh"
 source "$HOME/.zsh/nvm.zsh"
 source "$HOME/.zsh/keyboard.zsh"
 
-export PATH="/usr/local/bin:$PATH"
-export PATH="/usr/local/sbin:$PATH"
-export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH="/usr/local/opt/gnupg/libexec/gpgbin:$PATH"
+export PATH="$PATH:$HOME/.rbenv/bin"
+export PATH="$PATH:/usr/local/sbin"
+export PATH="$HOME/.zsh/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
 
 export FPATH="$FPATH:/usr/local/share/zsh-completions"
 export FPATH="$FPATH:/usr/share/zsh/site-functions"
