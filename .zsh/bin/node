@@ -11,5 +11,4 @@ if [ -z "$NVM_DIR" ]; then
   source $(brew --prefix nvm)/nvm.sh
 fi
 
-BINPATH=`nvm which default`
-eval "$BINPATH $@"
+eval $(nvm which default) $@
