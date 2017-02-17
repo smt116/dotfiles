@@ -1,8 +1,47 @@
 (require 'package)
-(package-initialize)
+(setq package-list '(auto-complete
+                     coffee-mode
+                     company
+                     company-web
+                     dockerfile-mode
+                     elixir-mode
+                     enh-ruby-mode
+                     erlang
+                     exec-path-from-shell
+                     go-mode
+                     jade-mode
+                     json-mode
+                     markdown-mode
+                     sass-mode
+                     scss-mode
+                     slim-mode
+                     solarized-theme
+                     tide
+                     xterm-color
+                     yaml-mode))
 (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
                          ("marmalade" . "https://marmalade-repo.org/packages/")
                          ("melpa" . "https://melpa.org/packages/")))
+(package-initialize)
+(unless package-archive-contents
+  (package-refresh-contents))
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (company-web yaml-mode xterm-color tide solarized-theme slim-mode scss-mode sass-mode rinari markdown-mode json-mode jade-mode go-mode exec-path-from-shell erlang enh-ruby-mode elixir-mode dockerfile-mode company coffee-mode auto-complete))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+(package-install-selected-packages)
+
 
 ;; load zsh profile
 (exec-path-from-shell-initialize)
@@ -126,18 +165,3 @@
 ;; formats the buffer before saving
 (add-hook 'before-save-hook 'tide-format-before-save)
 (add-hook 'typescript-mode-hook #'setup-tide-mode)
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (company-web yaml-mode xterm-color tide solarized-theme slim-mode scss-mode sass-mode rinari markdown-mode json-mode jade-mode go-mode exec-path-from-shell erlang enh-ruby-mode elixir-mode dockerfile-mode company coffee-mode auto-complete))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
