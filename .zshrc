@@ -38,6 +38,9 @@ setopt COMPLETE_IN_WORD
 setopt HIST_IGNORE_ALL_DUPS
 setopt EXTENDED_HISTORY
 
+# by default, ZSH will generate the filenames and throw an error before executing the command if it founds no matches.
+unsetopt nomatch
+
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
