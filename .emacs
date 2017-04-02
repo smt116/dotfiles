@@ -121,14 +121,14 @@
 ;; skip internal buffers
 (defadvice next-buffer (after avoid-messages-buffer-in-next-buffer)
   "Advice around `next-buffer' to avoid going into internal buffer."
-  (when (member (buffer-name) '("*Completions*" "*Messages*" "*Help*"))
+  (when (member (buffer-name) '("*Completions*" "*Messages*" "*Help*" "*tide-server*" "*vs*" "*Flycheck error messages*"))
     (next-buffer)))
 
 (ad-activate 'next-buffer)
 
 (defadvice previous-buffer (after avoid-messages-buffer-in-previous-buffer)
   "Advice around `previous-buffer' to avoid going into internal buffer."
-  (when (member (buffer-name) '("*Completions*" "*Messages*" "*Help*"))
+  (when (member (buffer-name) '("*Completions*" "*Messages*" "*Help*" "*tide-server*" "*vs*" "*Flycheck error messages*"))
     (previous-buffer)))
 
 (ad-activate 'previous-buffer)
