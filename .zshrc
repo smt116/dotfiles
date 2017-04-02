@@ -1,3 +1,5 @@
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
+
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
@@ -11,8 +13,8 @@ source "$HOME/.zsh/nvm.zsh"
 source "$HOME/.zsh/keyboard.zsh"
 
 export PATH="/usr/local/opt/gnupg/libexec/gpgbin:$PATH"
+export PATH="/usr/local/opt/curl/bin:$PATH"
 export PATH="$PATH:$HOME/.rbenv/bin"
-export PATH="$PATH:/usr/local/sbin"
 export PATH="$HOME/.zsh/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
 
