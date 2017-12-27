@@ -9,7 +9,6 @@ source "$HOME/.zsh/gpg.zsh"
 source "$HOME/.zsh/aliases.zsh"
 source "$HOME/.zsh/functions.zsh"
 source "$HOME/.zsh/git.zsh"
-source "$HOME/.zsh/nvm.zsh"
 source "$HOME/.zsh/keyboard.zsh"
 
 export PATH="/usr/local/opt/gnupg/libexec/gpgbin:$PATH"
