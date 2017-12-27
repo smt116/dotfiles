@@ -1,15 +1,13 @@
-#!/usr/bin/env sh
+#!/usr/bin/env zsh
 
 arguments=$@
 
 if [[ "${arguments[@]}" =~ "--no-window-system" ]]; then
-  emacs $@
+  emacs --no-window-system $@
 else
   if [ -z $(emacsclient -e '(emacs-pid)' 2> /dev/null) ]; then
-    launchctl start homebrew.mxcl.emacs
+    emacs --daemon
   fi
-
-  sleep 0.5
 
   if ps x | grep emacsclient | grep -v grep; then
     nohup emacsclient "$@" > /dev/null 2>&1 &
