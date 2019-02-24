@@ -4,3 +4,6 @@
 tmp
 \#*
 \.\#*
+.vscode
+.psc-ide-port
+.nvmrc

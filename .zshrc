@@ -11,11 +11,11 @@ source "$HOME/.zsh/functions.zsh"
 source "$HOME/.zsh/git.zsh"
 source "$HOME/.zsh/keyboard.zsh"
 
-export PATH="/usr/local/opt/gnupg/libexec/gpgbin:$PATH"
 export PATH="/usr/local/opt/curl/bin:$PATH"
-export PATH="$PATH:$HOME/.rbenv/bin"
+export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 export PATH="$HOME/.zsh/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
+export PATH="$PATH:$HOME/.rbenv/bin"
 
 export FPATH="$FPATH:/usr/local/share/zsh-completions"
 export FPATH="$FPATH:/usr/share/zsh/site-functions"
@@ -55,6 +55,35 @@ export LESS="--RAW-CONTROL-CHARS"
 
 eval "$(rbenv init -)"
 
+# Ruby ffi (required by macOS Mojave)
+export LDFLAGS="-L/usr/local/opt/libffi/lib"
+export PKG_CONFIG_PATH="/usr/local/opt/libffi/lib/pkgconfig"
+
 export GOPATH="$HOME/.go-lang"
 export PATH="$PATH:/usr/local/opt/go/libexec/bin"
 export PATH="$PATH:$GOPATH/bin"
+
+export MIX_HOME="$HOME/.mix"
+export ERL_AFLAGS="-kernel shell_history enabled"
+
+autoload -U add-zsh-hook
+load-nvm() {
+  if [ -f ".nvmrc" ]; then
+    export NVM_DIR="$HOME/.nvm"
+
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+    local node_version="$(nvm version)"
+    local nvmrc_path="$(nvm_find_nvmrc)"
+    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+
+    if [ "$nvmrc_node_version" = "N/A" ]; then
+      nvm install
+    elif [ "$nvmrc_node_version" != "$(node --version)" ]; then
+        nvm use
+    fi
+  fi
+}
+add-zsh-hook chpwd load-nvm
+load-nvm

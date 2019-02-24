@@ -37,6 +37,7 @@
   r  = rebase
   ri = rebase --interactive
   rc = rebase --continue
+  review = log master..HEAD --reverse
 
 [filter "lfs"]
   clean = git-lfs clean %f
