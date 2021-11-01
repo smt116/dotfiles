@@ -9,7 +9,7 @@ TICKET_ID=${BRANCH%/*}
 if [ "$BRANCH"  == "$TICKET_ID" ]; then exit 0; fi
 
 # Skip if ticket id is already added (for example on --amend)
-grep --no-messages --silent "^\[#.*\]" $1
+grep --no-messages --silent "^\[.*\]" $1
 if [ $? -eq 0 ]; then exit 0; fi
 
 # Skip if this is a fixup commit

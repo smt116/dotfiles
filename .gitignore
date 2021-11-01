@@ -7,3 +7,4 @@ tmp
 .vscode
 .psc-ide-port
 .nvmrc
+*.code-workspace

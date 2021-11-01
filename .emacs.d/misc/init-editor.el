@@ -22,10 +22,6 @@
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 2)
 (setq standard-indent tab-width)
-(setq css-indent-offset tab-width)
-(setq js-indent-level tab-width)
-(setq typescript-indent-level tab-width)
-(setq sh-basic-offset tab-width)
 
 ;; append new line at the end of file if not present
 (setq require-final-newline t)
@@ -40,6 +36,12 @@
 ;; show matching braces
 (show-paren-mode t)
 (setq show-paren-mode 'expression)
+
+;; C-tab to start macro
+(global-set-key (kbd "C-TAB") 'kmacro-start-macro)
+
+;; C-q to execute macro (as C-e is overwritten)
+(global-set-key (kbd "C-q") 'kmacro-end-or-call-macro)
 
 ;; C-a to move to the beginning of text
 (defun beginning-of-line-or-indentation ()
@@ -85,9 +87,14 @@
 (global-set-key (kbd "C->") 'my-indent-region)
 (global-set-key (kbd "C-<") 'my-unindent-region)
 
-;; kill all buffers
 (defun close-all-buffers ()
-(interactive)
+  "Kill all buffers."
+  (interactive)
   (mapc 'kill-buffer (buffer-list)))
+
+(defun close-other-buffers ()
+  "Kill all buffers except the current one."
+  (interactive)
+  (mapc 'kill-buffer (delq (current-buffer) (buffer-list))))
 
 (provide 'init-editor)

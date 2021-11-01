@@ -1,14 +1,21 @@
 (require 'init-packages)
+
 (require-package 'enh-ruby-mode)
+(require-package 'flycheck)
+
+(require 'enh-ruby-mode)
+(require 'flycheck)
 
 (add-to-list 'interpreter-mode-alist '("ruby" . enh-ruby-mode))
 (add-to-list 'auto-mode-alist
-             '("\\(?:\\.rb\\|ru\\|rake\\|thor\\|jbuilder\\|gemspec\\|podspec\\|/\\(?:Gem\\|Rake\\|Cap\\|Thor\\|Vagrant\\|Guard\\|Pod\\)file\\)\\'" . enh-ruby-mode))
+             '("\\(?:\\.rb\\.rbi\\|ru\\|rake\\|thor\\|jbuilder\\|gemspec\\|podspec\\|/\\(?:Gem\\|Rake\\|Cap\\|Thor\\|Vagrant\\|Guard\\|Pod\\)file\\)\\'" . enh-ruby-mode))
 
-;; prevent from adding coding header to ruby files
-(setq ruby-insert-encoding-magic-comment nil)
+(add-hook 'enh-ruby-mode-hook
+          (lambda ()
+            (add-to-list 'flycheck-disabled-checkers 'ruby-rubocop)))
 
-;; FIXME
-;; (flycheck-disable-checker 'ruby-rubocop)
+(add-hook 'ruby-mode-hook
+          (lambda ()
+            (add-to-list 'flycheck-disabled-checkers 'ruby-rubocop)))
 
 (provide 'init-ruby)

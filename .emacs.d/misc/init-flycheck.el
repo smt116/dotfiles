@@ -1,5 +1,5 @@
 ;; flycheck bindings
-(global-set-key (kbd "C-,") 'flycheck-first-error)
+(global-set-key (kbd "C-,") 'flycheck-next-error)
 
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
