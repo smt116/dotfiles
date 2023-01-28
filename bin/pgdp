@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+pg_dump -Fc -h localhost -p 5432 --clean --if-exists --no-owner --no-acl $1 > $1.$(date +'%Y.%m.%d.%H.%M').dump

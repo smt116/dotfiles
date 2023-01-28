@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+
+set -e
+
+APP_NAME=$1
+URL_KEY=${2:-DATABASE_URL}
+URL=$(gigalixir config -a $APP_NAME | jq -r ".${URL_KEY}" | sed "s/ecto/postgres/1")
+
+if [ "$URL" == "null" ]; then
+  echo "Database does not exist"
+  exit 1
+else
+  pgdpr $URL
+fi

@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+
+DATABASE_NAME=$(echo $1 | cut -d "/" -f4)
+
+if [ "$DATABASE_NAME" == "null" ]; then
+  echo "Cannot extract database name from the URL"
+  exit 1
+else
+  pg_dump --format c --clean --if-exists --no-owner --no-acl $1 > $DATABASE_NAME.$(date +'%Y.%m.%d.%H.%M').dump
+fi

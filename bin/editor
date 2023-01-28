@@ -1,0 +1,17 @@
+#/usr/bin/env sh
+
+arguments=$@
+
+if [[ "${arguments[@]}" =~ "--no-window-system" ]]; then
+  emacs --no-window-system $@
+else
+  if [ -z $(emacsclient -e '(emacs-pid)' 2> /dev/null) ]; then
+    emacs --daemon
+  fi
+
+  if [[ ! $(ps x | grep emacsclient | grep -v grep) ]]; then
+    nohup emacsclient --create-frame  >/dev/null 2>&1 &
+  fi
+
+  nohup emacsclient $@ >/dev/null 2>&1 &
+fi

@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+/opt/homebrew/opt/libpq/bin/psql -h localhost -p 5432 $@

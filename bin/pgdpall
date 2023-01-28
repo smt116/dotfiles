@@ -1,0 +1,16 @@
+#!/usr/bin/env sh
+
+PORT=${1:-5432}
+
+vacuumdb --all --full --host localhost --port $PORT
+
+pg_dumpall --host localhost \
+           --port $PORT \
+           --no-owner \
+           --no-acl \
+           --clean \
+           --if-exists \
+           --exclude-database="template*" \
+           --exclude-database="*_prd" \
+           --exclude-database="*_production" \
+           --exclude-database="*_prod" > all.$PORT.$(date +'%Y.%m.%d.%H.%M').sql

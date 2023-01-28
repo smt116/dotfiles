@@ -1,0 +1,26 @@
+#!/usr/bin/env fish
+
+echo "Upgrading brew packages..."
+brew update
+and brew upgrade
+and brew cleanup
+
+echo "Looking for unused ASDF plugins..."
+set -l used (find ~/repos/ -name ".tool-versions" -exec cat ~/.tool-versions {} + | sort)
+for plugin in $(asdf plugin-list)
+  for plugin_version in $(asdf list $plugin | sed 's/  //')
+    if not contains "$plugin $plugin_version" $used
+      echo "Uninstalling $plugin $plugin_version..."
+      asdf uninstall $plugin $plugin_version
+    end
+  end
+end
+
+echo "Updating ASDF plugins..."
+asdf plugin update --all
+
+echo "Updating Ruby ecosystem..."
+asdf-each ruby gem update --system
+
+echo "Updating Elixir ecosystem..."
+asdf-each elixir mix local.rebar --force

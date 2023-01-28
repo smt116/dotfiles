@@ -1,0 +1,31 @@
+#!/usr/bin/env sh
+
+set -e
+
+if [ -z "$1" ]; then
+   echo "Provide database name, e.g. $0 application_dev"
+   exit 1
+fi
+
+COMMON_ARGS="--no-psqlrc --quiet --host localhost --port 5432"
+RESTORE_ARGS="--host localhost --port 5432"
+
+echo "Closing existing sessions for $1..."
+/opt/homebrew/opt/libpq/bin/psql $COMMON_ARGS --dbname template1 --command "select pg_terminate_backend(pid) from pg_stat_activity where datname = '$1';"
+
+echo "Recreating $1..."
+/opt/homebrew/opt/libpq/bin/psql $COMMON_ARGS --dbname template1 --command "drop database if exists \"$1\""
+/opt/homebrew/opt/libpq/bin/psql $COMMON_ARGS --dbname template1 --command "create database \"$1\""
+
+if [ -f "$2" ]; then
+    echo "Feeding $1 with $2..."
+
+    if [ -n "$(file $2 | grep "PostgreSQL custom database dump")" ]; then
+        pg_restore $RESTORE_ARGS --no-owner --no-acl --clean --if-exist --dbname $1 $2
+    else
+        cat $2 | psql $COMMON_ARGS --dbname $1
+    fi
+
+    echo "Vacuuming $1..."
+    vacuumdb $RESTORE_ARGS --dbname $1 --analyze-only
+fi
